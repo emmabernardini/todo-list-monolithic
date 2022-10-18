@@ -49,13 +49,24 @@ footer {
 }
 
 .todolist {
-    background-color: whitesmoke;
     color: rgb(88, 0, 0);
-    height: 50vh;
-    width: 50.5%;
+    background-color: white;
+    padding: 1rem 1rem 0.5rem 1rem;
+    width: 47%;
     box-sizing: content-box;
     margin: auto;
     margin-top: 5px;
     font-size: 1.5rem;
     text-align: left;
+}
+
+.todolist__li {
+    padding-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashed {
+    text-decoration:line-through;
+    color: rgba(139, 0, 0, 0.6);
 }
