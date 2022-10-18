@@ -1,0 +1,61 @@
+html {
+    font-family: 'Alegreya Sans', sans-serif;
+    font-size: 20px;
+}
+
+body {
+    background-color: rgb(88, 0, 0);
+    color: white;
+    margin: 0.5rem auto;
+    padding: 1rem;
+    width: 80vw;
+    height: 90vh;
+    text-align: center;
+}
+
+header {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0; 
+    padding-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+.h2 {
+    font-size: 2rem;
+}
+
+.link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.form_input {
+    width: 50%;
+    height: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+.todolist {
+    background-color: whitesmoke;
+    color: rgb(88, 0, 0);
+    height: 50vh;
+    width: 50.5%;
+    box-sizing: content-box;
+    margin: auto;
+    margin-top: 5px;
+    font-size: 1.5rem;
+    text-align: left;
+}

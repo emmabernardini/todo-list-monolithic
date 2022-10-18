@@ -25,9 +25,18 @@ app.set("views","./app/views"); // Sélection du dossier pour l'utiliser
 
 app.use(express.static("public")); // Sers les fichiers du dossier 'public' statiquement (images ...)
 
+// Gestion dispo de la session
+app.use((req, _res, next) => {
+  if(!req.session.todolist) {
+    req.session.todolist = [];
+  }
+  app.locals.session = req.session;
+  next();
+});
+
 app.use(router); // Mise en route du routeur
 
-const PORT = process.env.PORT || 4000; // Sélection du port via la variable d'environnement, ou 3000 par défaut
+const PORT = process.env.PORT || 3000; // Sélection du port via la variable d'environnement, ou 3000 par défaut
 
 app.listen(PORT, () => { // Ecoute du routeur sur le port défini ci-dessus
     console.log(`Listening on ${PORT}`);
