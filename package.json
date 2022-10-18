@@ -1,0 +1,32 @@
+{
+  "name": "todo-list-website-emmabernardini",
+  "version": "1.0.0",
+  "description": "construire un site équivalent à https://todomvc.com/examples/vanillajs/#/",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node-dev index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emmabernardini/todo-list-website-emmabernardini.git"
+  },
+  "keywords": [
+    "todo"
+  ],
+  "author": "emmabernardini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emmabernardini/todo-list-website-emmabernardini/issues"
+  },
+  "homepage": "https://github.com/emmabernardini/todo-list-website-emmabernardini#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3"
+  },
+  "devDependencies": {
+    "node-dev": "^7.4.3"
+  }
+}
