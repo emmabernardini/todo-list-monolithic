@@ -1,40 +1,8 @@
 <%- include('partials/header') %>
 
-<main>
-        <form action="/add" class="form" method="post">
-            <input class="form_input" type="text" name="todofield" id="todofield" placeholder="Ajouter un élément à la to-do">
-        </form>
+<%- include('partials/form', {
+    table: locals.session.todolist,
+}) %>
 
-        <div class="todolist">
-        <% if(locals.session.todolist.length) { %>
-                <ul class="listofchores">
-            <% for (const chore of locals.session.todolist) { %>
-                
-                    <li class="todolist__li"> 
-                        <% if(chore.status) {%> 
-                            <a class = "link" href="/undo/<%= chore.id %>"><div class="button__done">&#10003;</div></a>
-                            <form action="/modify/<%= chore.id %>"><input class="chore done" type="search" name="chore" id="<%= chore.id %>" value="<%= chore.name %>"></form>
-                        <% } else { %> 
-                            <a class = "link" href="/do/<%=  chore.id %>"><div class="button__done">&nbsp;</div></a>
-                            <form action="/modify/<%=  chore.id %>"><input class="chore" type="search" name="chore" id="<%= chore.id %>" value="<%= chore.name %>"></form>
-                        <% } %>   
-                        
-                        <a class="link" href="/remove/<%=  chore.id %>">&#10060;</a>
-                    </li>
-            <% } %>
-
-        <% } %>
-    </ul>
-    <ul class="infos">
-        
-        <li><a class="link" href="/"><%= locals.session.todolist.length %> Item(s) Totaux</a></li>
-        <li class="itemDoneCount"><a class="link" href="/active"><%= locals.session.nbOfFalse %> Item(s) pending</a></li>
-        <li class="itemDoneCount"><a class="link" href="/completed"><%= locals.session.nbOfTrue %> Item(s) done</a></li>
-
-    </ul>
-</div>
-
-
-</main>
 
 <%- include('partials/footer') %>
