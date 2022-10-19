@@ -6,33 +6,33 @@
         </form>
 
         <div class="todolist">
-        <% if(locals.session.todolist.length) { %>
+        <% if(filteredThings.length) { %>
                 <ul class="listofchores">
-            <% for (const chore of locals.session.todolist) { %>
+            <% for (const chore of filteredThings) { %>
                 
                     <li class="todolist__li"> 
                         <% if(chore.status) {%> 
                             <a class = "link" href="/undo/<%= chore.id %>"><div class="button__done">&#10003;</div></a>
                             <form action="/modify/<%= chore.id %>"><input class="chore done" type="search" name="chore" id="<%= chore.id %>" value="<%= chore.name %>"></form>
                         <% } else { %> 
-                            <a class = "link" href="/do/<%=  chore.id %>"><div class="button__done">&nbsp;</div></a>
-                            <form action="/modify/<%=  chore.id %>"><input class="chore" type="search" name="chore" id="<%= chore.id %>" value="<%= chore.name %>"></form>
+                            <a class = "link" href="/do/<%= chore.id %>"><div class="button__done">&nbsp;</div></a>
+                            <form action="/modify/<%= chore.id %>"><input class="chore" type="search" name="chore" id="<%= chore.id %>" value="<%= chore.name %>"></form>
                         <% } %>   
                         
-                        <a class="link" href="/remove/<%=  chore.id %>">&#10060;</a>
+                        <a class="link" href="/remove/<%= chore.id %>">&#10060;</a>
                     </li>
             <% } %>
-
+                </ul>
         <% } %>
-    </ul>
-    <ul class="infos">
-        
-        <li><a class="link" href="/"><%= locals.session.todolist.length %> Item(s) Totaux</a></li>
-        <li class="itemDoneCount"><a class="link" href="/active"><%= locals.session.nbOfFalse %> Item(s) pending</a></li>
-        <li class="itemDoneCount"><a class="link" href="/completed"><%= locals.session.nbOfTrue %> Item(s) done</a></li>
+        <ul class="infos">
+                    
+            <li><a class="link" href="/"><%= locals.session.todolist.length %> Item(s) Totaux</a></li>
+            <li class="itemDoneCount"><a class="link" href="/active"><%= locals.session.nbOfFalse %> Item(s) pending</a></li>
+            <li class="itemDoneCount"><a class="link" href="/completed"><%= locals.session.nbOfTrue %> Item(s) done</a></li>
 
-    </ul>
-</div>
+
+        </ul>
+    </div>
 
 
 </main>
