@@ -30,8 +30,8 @@ app.use((req, _res, next) => {
   if(!req.session.todolist) {
     req.session.todolist = [];
   }
-  req.session.nbOfTrue = req.session.todolist.filter(chore => chore.status === true).length
-  req.session.nbOfFalse = req.session.todolist.filter(chore => chore.status === false).length
+  req.session.nbOfTrue = req.session.todolist.filter(chore => chore.isCompleted === true).length
+  req.session.nbOfFalse = req.session.todolist.filter(chore => chore.isCompleted === false).length
   app.locals.session = req.session;
 
   next();

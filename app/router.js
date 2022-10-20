@@ -20,10 +20,14 @@ router.get("/do/:id", updateController.thingDone);
 router.get("/undo/:id", updateController.thingUndone);
 
 // On trie 
-router.get("/:status", displayController.filteredPage);
+router.get("/:isCompleted", displayController.filteredPage);
 
 // On modifie
 router.get("/modify/:id", updateController.modifyThingAndRedirect);
+
+// On gère l'ensemble
+// router.get("/deleteEverything", updateController.removeEverything);
+// router.get("/completeEverything", updateController.completeEverything);
 
 
 //404

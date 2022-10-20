@@ -5,12 +5,12 @@ const displayController = {
     },
 
     filteredPage: (req, res, next) => {
-        const status = req.params.status;
+        const isCompleted = req.params.isCompleted;
         let filteredThings;
-        if(status === "active") {
-            filteredThings = req.session.todolist.filter(chore => chore.status === false);
-        } else if (status === "completed") {
-            filteredThings = req.session.todolist.filter(chore => chore.status === true);
+        if(isCompleted === "active") {
+            filteredThings = req.session.todolist.filter(chore => chore.isCompleted === false);
+        } else if (isCompleted === "completed") {
+            filteredThings = req.session.todolist.filter(chore => chore.isCompleted === true);
         } else {
             next(); return;
         }

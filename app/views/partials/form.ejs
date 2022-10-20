@@ -10,7 +10,7 @@
         <% for (const chore of locals.table) { %>
             
                 <li class="todolist__li"> 
-                    <% if(chore.status) {%> 
+                    <% if(chore.isCompleted) {%> 
                         <a class = "link" href="/undo/<%= chore.id %>"><div class="button__done">&#10003;</div></a>
                         <form action="/modify/<%= chore.id %>"><input class="chore done" type="search" name="chore" id="<%= chore.id %>" value="<%= chore.name %>"></form>
                     <% } else { %> 
@@ -25,10 +25,11 @@
     <% } %>
 </ul>
 <ul class="infos">
-    
+    <li><a class="link" href="/completeEverything">Tout compléter</a></li>
     <li><a class="link" href="/"><%= locals.session.todolist.length %> Item(s) Totaux</a></li>
     <li class="itemDoneCount"><a class="link" href="/active"><%= locals.session.nbOfFalse %> Item(s) pending</a></li>
     <li class="itemDoneCount"><a class="link" href="/completed"><%= locals.session.nbOfTrue %> Item(s) done</a></li>
+    <li><a class="link" href="/deleteEverything">Tout supprimer</a></li>
 
 </ul>
 </div>
