@@ -25,11 +25,24 @@
     <% } %>
 </ul>
 <ul class="infos">
-    <li><a class="link" href="/completeEverything">Tout compléter</a></li>
-    <li><a class="link" href="/"><%= locals.session.todolist.length %> Item(s) Totaux</a></li>
-    <li class="itemDoneCount"><a class="link" href="/active"><%= locals.session.nbOfFalse %> Item(s) pending</a></li>
-    <li class="itemDoneCount"><a class="link" href="/completed"><%= locals.session.nbOfTrue %> Item(s) done</a></li>
-    <li><a class="link" href="/deleteEverything">Tout supprimer</a></li>
+    <% if(locals.table.length) { %>
+        <% if(locals.table.some(chore => !chore.isCompleted)) { %>
+            <li><a class="link" href="/completeEverything">Tout compléter</a></li>
+        <% } else { %>
+            <li><a class="link" href="/uncompleteEverything">Tout décocher</a></li>
+        <% } %>
+    <% }%>
+
+    <div class="filters">
+        <li class="filter <% if (locals.current ==="home") { %> active <% } %>" ><a class="link link--filters" href="/"><%= locals.session.todolist.length %> Item(s) Totaux</a></li>
+        <li class="filter <% if (locals.current ==="active") { %> active <% } %>" ><a class="link link--filters" href="/active"><%= locals.session.nbOfFalse %> Item(s) pending</a></li>
+        <li class="filter <% if (locals.current ==="completed") { %> active <% } %>" ><a class="link link--filters" href="/completed"><%= locals.session.nbOfTrue %> Item(s) done</a></li>
+    </div>
+
+    <% if(locals.table.length) { %>
+        <li><a class="link" href="/deleteEverything">Tout supprimer</a></li>
+    <% }%>
+       
 
 </ul>
 </div>

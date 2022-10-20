@@ -20,7 +20,7 @@ const updateController = {
         res.redirect("/");
     }, 
 
-    thingDone: (req, res) => {
+    choreCompleted: (req, res) => {
         const id = parseInt(req.params.id);
         const index = req.session.todolist.findIndex(chore => chore.id === id);
         if(index !== -1) {
@@ -29,7 +29,7 @@ const updateController = {
         res.redirect("/");
     },
 
-    thingUndone: (req, res) => {
+    choreUncompleted: (req, res) => {
         const id = parseInt(req.params.id);
         const index = req.session.todolist.findIndex(chore => chore.id === id);
         if(index !== -1) {
@@ -48,8 +48,20 @@ const updateController = {
         res.redirect("/");
     }, 
 
+    removeEverything: (req, res) => {
+        req.session.todolist = [];
+        res.redirect("/");
+    }, 
 
+    completeEverything: (req, res) => {
+        req.session.todolist.forEach(chore => chore.isCompleted = true);
+        res.redirect("/");
+    }, 
 
+    uncompleteEverything: (req, res) => {
+        req.session.todolist.forEach(chore => chore.isCompleted = false);
+        res.redirect("/");
+    }, 
 }
 
 module.exports = updateController;

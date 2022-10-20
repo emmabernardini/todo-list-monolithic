@@ -76,9 +76,38 @@ footer {
 
 .infos {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     font-size: 1rem;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 5px;
+    border: 0.1rem solid transparent;
+}
+
+.filter:hover {
+    border: 0.1rem solid rgba(139, 0, 0, 0.6);
+}
+
+.active {
+    border: 0.1rem solid rgb(88, 0, 0);
+}
+
+.active:hover {
+    border: 0.1rem solid rgb(88, 0, 0);
+}
+
+.link--filters:hover {
+    text-decoration: none;
 }
 
 .button__done {

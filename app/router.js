@@ -16,8 +16,8 @@ router.post("/add",updateController.addThingToDoAndRedirect);
 router.get("/remove/:id", updateController.removeThingToDoAndRedirect);
 
 // On coche ou non les tâches
-router.get("/do/:id", updateController.thingDone);
-router.get("/undo/:id", updateController.thingUndone);
+router.get("/do/:id", updateController.choreCompleted);
+router.get("/undo/:id", updateController.choreUncompleted);
 
 // On trie 
 router.get("/:isCompleted", displayController.filteredPage);
@@ -26,9 +26,9 @@ router.get("/:isCompleted", displayController.filteredPage);
 router.get("/modify/:id", updateController.modifyThingAndRedirect);
 
 // On gère l'ensemble
-// router.get("/deleteEverything", updateController.removeEverything);
-// router.get("/completeEverything", updateController.completeEverything);
-
+router.get("/deleteEverything", updateController.removeEverything);
+router.get("/completeEverything", updateController.completeEverything);
+router.get("/uncompleteEverything", updateController.uncompleteEverything);
 
 //404
 router.use((_req, res) => { // Gestion de tous les cas d'url incorrect via un middleware 404
