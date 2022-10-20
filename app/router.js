@@ -3,26 +3,27 @@ const express = require("express"); // Import express
 const router = express.Router(); // Mise en place routeur
 
 // Import du/des controller(s)
-const mainController = require("./controllers/mainController");
+const displayController = require("./controllers/displayController");
+const updateController = require("./controllers/updateController");
 
 //Page d'accueil
-router.get("/", mainController.homePage);
+router.get("/", displayController.homePage);
 
 //Ajout d'un élément à la todo
-router.post("/add",mainController.addThingToDoAndRedirect);
+router.post("/add",updateController.addThingToDoAndRedirect);
 
 // Suppression d'un élément de la todo
-router.get("/remove/:id", mainController.removeThingToDoAndRedirect);
+router.get("/remove/:id", updateController.removeThingToDoAndRedirect);
 
 // On coche ou non les tâches
-router.get("/do/:id", mainController.thingDone);
-router.get("/undo/:id", mainController.thingUndone);
+router.get("/do/:id", updateController.thingDone);
+router.get("/undo/:id", updateController.thingUndone);
 
 // On trie 
-router.get("/:status", mainController.filteredPage);
+router.get("/:status", displayController.filteredPage);
 
 // On modifie
-router.get("/modify/:id", mainController.modifyThingAndRedirect);
+router.get("/modify/:id", updateController.modifyThingAndRedirect);
 
 
 //404

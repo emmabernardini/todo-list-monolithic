@@ -1,8 +1,5 @@
-const mainController = { 
+const updateController = { 
 
-    homePage: (req, res) => {
-        res.render("home");
-    },
     addThingToDoAndRedirect: (req, res) => {
         const field = req.body.todofield;
         const infos = {
@@ -37,20 +34,6 @@ const mainController = {
         }
         res.redirect("/");
     },
-    filteredPage: (req, res, next) => {
-        const status = req.params.status;
-        let filteredThings;
-        if(status === "active") {
-            filteredThings = req.session.todolist.filter(chore => chore.status === false);
-        } else if (status === "completed") {
-            filteredThings = req.session.todolist.filter(chore => chore.status === true);
-        } else {
-            next(); return;
-        }
-        res.render("filtered", {
-            filteredThings
-        })
-    }, 
     modifyThingAndRedirect: (req, res) => {
         const id = parseInt(req.params.id);
         const value = req.query.chore;
@@ -63,4 +46,4 @@ const mainController = {
 
 }
 
-module.exports = mainController;
+module.exports = updateController;

@@ -53,6 +53,10 @@ footer {
     font-family: 'Alegreya Sans', sans-serif;
 }
 
+#todofield:focus {
+    outline: none;
+}
+
 .todolist {
     color: rgb(88, 0, 0);
     background-color: white;
