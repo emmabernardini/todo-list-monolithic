@@ -1,7 +1,7 @@
 
 <main>
     <form action="/add" class="form" method="post">
-        <input class="form_input" type="text" name="todofield" id="todofield" placeholder="Ajouter un élément à la to-do">
+        <input class="form_input" type="text" name="todofield" id="todofield" placeholder="Ajouter à la to-do">
     </form>
 
     <div class="todolist">
@@ -27,20 +27,20 @@
 <ul class="infos">
     <% if(locals.table.length) { %>
         <% if(locals.table.some(chore => !chore.isCompleted)) { %>
-            <li><a class="link" href="/completeEverything">Tout compléter</a></li>
+            <li class="alltreatment"><a class="link" href="/completeEverything">Tout compléter</a></li>
         <% } else { %>
             <li><a class="link" href="/uncompleteEverything">Tout décocher</a></li>
         <% } %>
     <% }%>
 
     <div class="filters">
-        <li class="filter <% if (locals.current ==="home") { %> active <% } %>" ><a class="link link--filters" href="/"><%= locals.session.todolist.length %> Item(s) Totaux</a></li>
-        <li class="filter <% if (locals.current ==="active") { %> active <% } %>" ><a class="link link--filters" href="/active"><%= locals.session.nbOfFalse %> Item(s) pending</a></li>
-        <li class="filter <% if (locals.current ==="completed") { %> active <% } %>" ><a class="link link--filters" href="/completed"><%= locals.session.nbOfTrue %> Item(s) done</a></li>
+        <li class="filter <% if (locals.current ==="home") { %> active <% } %>" ><a class="link link--filters" href="/">Total : <%= locals.session.todolist.length %></a></li>
+        <li class="filter <% if (locals.current ==="active") { %> active <% } %>" ><a class="link link--filters" href="/active">Pending : <%= locals.session.nbOfFalse %></a></li>
+        <li class="filter <% if (locals.current ==="completed") { %> active <% } %>" ><a class="link link--filters" href="/completed">Done : <%= locals.session.nbOfTrue %></a></li>
     </div>
 
     <% if(locals.table.length) { %>
-        <li><a class="link" href="/deleteEverything">Tout supprimer</a></li>
+        <li class="alltreatment"><a class="link" href="/deleteEverything">Tout supprimer</a></li>
     <% }%>
        
 
