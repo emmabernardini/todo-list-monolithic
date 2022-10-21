@@ -1,3 +1,4 @@
+'use strict';
 require("dotenv").config(); // Variables d'environnement (port)
 
 const express = require("express"); // Import express
@@ -6,7 +7,11 @@ const session = require("express-session"); // Import express-session gestion se
 
 const router = require("./app/router"); // Import routeur
 
+const serverless = require('serverless-http'); // Tentative d'export
+
 const app = express(); // Config express 
+
+app.use('/.netlify/functions/server', router);  // path must route to lambda
 
 app.use(session({ // Configuratiion des sessions
     secret: process.env.SECRET,
@@ -44,3 +49,5 @@ const PORT = process.env.PORT || 3000; // Sélection du port via la variable d'e
 app.listen(PORT, () => { // Ecoute du routeur sur le port défini ci-dessus
     console.log(`Listening on ${PORT}`);
 });  
+
+module.exports.handler = serverless(app);
