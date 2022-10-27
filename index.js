@@ -9,12 +9,11 @@ const router = require("./app/router"); // Import routeur
 const app = express(); // Config express 
 
 app.use(session({ // Configuratiion des sessions
-    secret: process.env.SECRET,
+    secret: "todo",
     resave: false, // Ne force save pas si pas de modification
     saveUninitialized: true, // Sauve la session même s'il n'y a rien dedans (init)
     cookie: {
       secure: false, // Non sécurisé
-      maxAge: 24*60*60*1000 // 24h
     }
 }));
 
