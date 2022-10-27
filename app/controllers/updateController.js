@@ -2,12 +2,14 @@ const updateController = {
 
     addThingToDoAndRedirect: (req, res) => {
         const field = req.body.todofield;
-        const infos = {
-            name: field,
-            isCompleted: false,
-            id: req.session.todolist.length + 1
+        if(field !== "") {
+            const infos = {
+                name: field,
+                isCompleted: false,
+                id: req.session.todolist.length + 1
+            }
+            req.session.todolist.push(infos);
         }
-        req.session.todolist.push(infos);
         res.redirect("/");
     },
 
